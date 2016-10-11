@@ -3,6 +3,8 @@ import {CoursesComponent} from './courses.component'
 import {AuthorsComponent} from './authors.component'
 import {FavoriteComponent} from './favorite.component'
 import {LikeComponent} from './like.component'
+import {VoteComponent} from './vote.component'
+
 
 
 
@@ -15,13 +17,20 @@ import {LikeComponent} from './like.component'
         <authors></authors>
         <favorite></favorite>
         <like [totalLikes]=tweet.totalLikes [isLiked]=tweet.isLiked></like>
+        <vote [voteCount]=tweet.voteCount [myVote]=tweet.myVote 
+        (vote)="onVote($event)"></vote>
         `,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent]
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent]
 
 })
 export class AppComponent { 
     tweet = {
         totalLikes : 10,
-        isLiked : true
+        isLiked : true,
+        voteCount : 20,
+        myVote : 0
+    }
+    onVote(event) {
+        console.log(event);
     }
 }
