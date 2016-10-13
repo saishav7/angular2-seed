@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './authors.component', './favorite.component', './like.component', './vote.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './authors.component', './favorite.component', './like.component', './vote.component', './tweet.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './authors.component', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, authors_component_1, favorite_component_1, like_component_1, vote_component_1;
+    var core_1, courses_component_1, authors_component_1, favorite_component_1, like_component_1, vote_component_1, tweet_component_1;
     var AppComponent;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['angular2/core', './courses.component', './authors.component', 
             },
             function (vote_component_1_1) {
                 vote_component_1 = vote_component_1_1;
+            },
+            function (tweet_component_1_1) {
+                tweet_component_1 = tweet_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -41,6 +44,29 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                         voteCount: 20,
                         myVote: 0
                     };
+                    this.tweets = [
+                        {
+                            totalLikes: 6,
+                            isLiked: true,
+                            heading: 'Heading1',
+                            username: 'user1',
+                            text: 'This is just a test'
+                        },
+                        {
+                            totalLikes: 0,
+                            isLiked: true,
+                            heading: 'Heading2',
+                            username: 'user2',
+                            text: 'This is just a test'
+                        },
+                        {
+                            totalLikes: 10,
+                            isLiked: true,
+                            heading: 'Heading3',
+                            username: 'user3',
+                            text: 'This is just a test'
+                        }
+                    ];
                 }
                 AppComponent.prototype.onVote = function (event) {
                     console.log(event);
@@ -48,8 +74,8 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <h1>My First Angular 2 App</h1>\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n        <like [totalLikes]=tweet.totalLikes [isLiked]=tweet.isLiked></like>\n        <vote [voteCount]=tweet.voteCount [myVote]=tweet.myVote \n        (vote)=\"onVote($event)\"></vote>\n        ",
-                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent]
+                        template: "\n        <h1>My First Angular 2 App</h1>\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n        <like [totalLikes]=tweet.totalLikes [isLiked]=tweet.isLiked></like>\n        <vote [voteCount]=tweet.voteCount [myVote]=tweet.myVote \n        (vote)=\"onVote($event)\"></vote>\n\n        <tweet [tweets]=tweets></tweet>\n        ",
+                        directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent, tweet_component_1.TweetComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
