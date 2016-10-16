@@ -5,6 +5,7 @@ import {FavoriteComponent} from './favorite.component'
 import {LikeComponent} from './like.component'
 import {VoteComponent} from './vote.component'
 import {TweetComponent} from './tweet.component'
+import {ZippyComponent} from './zippy.component'
 
 
 
@@ -22,9 +23,11 @@ import {TweetComponent} from './tweet.component'
         <vote [voteCount]=tweet.voteCount [myVote]=tweet.myVote 
         (vote)="onVote($event)"></vote>
 
-        <tweet [tweets]=tweets></tweet>
+        <!-- <tweet [tweets]=tweets></tweet> -->
+        <zippy title="this is the title">This is the body</zippy>
+        <zippy title="testing zippy">Awesome! Zippy works...</zippy>
         `,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent, TweetComponent]
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent, TweetComponent, ZippyComponent]
 
 })
 export class AppComponent { 
